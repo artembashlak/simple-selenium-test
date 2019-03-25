@@ -1,13 +1,8 @@
 package ua.com.rozetka.tests;
 
-import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
 import ua.com.rozetka.core.BaseTest;
 import ua.com.rozetka.pages.HomePage;
-
-import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static ua.com.rozetka.pages.BasePage.open;
