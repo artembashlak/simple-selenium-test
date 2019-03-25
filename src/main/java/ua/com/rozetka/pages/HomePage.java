@@ -27,49 +27,49 @@ public class HomePage extends BasePage {
     }
 
     @Step
-    public HomePage openURL(){
+    public HomePage openURL() {
         getDriver().get(baseURL);
         return this;
     }
 
     @Step
-    public HomePage clickSearchInput(){
-         searchProductInput.click();
-         return this;
+    public HomePage clickSearchInput() {
+        searchProductInput.click();
+        return this;
     }
 
     @Step
-    public HomePage typeProductName(String product){
+    public HomePage typeProductName(String product) {
         searchProductInput.sendKeys(product);
         return this;
     }
 
     @Step
-    public HomePage clickElementInDropdown(){
+    public HomePage clickElementInDropdown() {
         itemInSearchResultsList.click();
         return this;
     }
 
     @Step
-    public HomePage selectRoseProduct(){
+    public HomePage selectRoseProduct() {
         roseIphoneProduct.click();
         return this;
     }
 
     @Step
-    public HomePage addProductToCart(){
+    public HomePage addProductToCart() {
         purchaseButton.click();
         return this;
     }
 
     @Step
-    public HomePage selectGreyColor(){
+    public HomePage selectGreyColor() {
         greyColorInPicker.click();
         return this;
     }
 
     @Step
-    public String getSumInPopout(){
+    public String getSumInPopout() {
         return cartPopoutSum.getText();
     }
 }

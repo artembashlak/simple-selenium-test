@@ -5,11 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.io.IOException;
-
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class BaseTest{
+public class BaseTest {
 
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
 
@@ -20,13 +18,13 @@ public class BaseTest{
     }
 
     @AfterClass
-    public void tearDown() throws IOException {
+    public void tearDown() {
         DRIVER.get().quit();
         DRIVER.remove();
     }
 
     public static WebDriver getDriver() {
-         return DRIVER.get();
+        return DRIVER.get();
     }
 
 }

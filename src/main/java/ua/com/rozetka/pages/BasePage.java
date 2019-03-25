@@ -12,7 +12,7 @@ public class BasePage {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public static <T extends BasePage> T open(Class<T> pageClass){
+    public static <T extends BasePage> T open(Class<T> pageClass) {
         PageFactory.initElements(getDriver(), pageClass);
         return on(pageClass).create().get();
     }
