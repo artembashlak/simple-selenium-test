@@ -7,6 +7,10 @@ import org.testng.annotations.BeforeClass;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+/**
+ * Class that init WebDriver instance.
+ */
+
 public class BaseTest {
 
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();

@@ -7,6 +7,9 @@ import org.openqa.selenium.support.How;
 
 import static ua.com.rozetka.core.BaseTest.getDriver;
 
+/**
+ * Class with homepage elements, basic methods to work with homepage elements.
+ */
 
 public class HomePage extends BasePage {
     @FindBy(how = How.NAME, using = "search")
@@ -22,10 +25,6 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@name='sum']")
     private WebElement cartPopoutSum;
 
-    public HomePage() {
-        super();
-    }
-
     @Step
     public HomePage openURL() {
         getDriver().get(baseURL);
@@ -39,7 +38,7 @@ public class HomePage extends BasePage {
     }
 
     @Step
-    public HomePage typeProductName(String product) {
+    public HomePage typeProductName(final String product) {
         searchProductInput.sendKeys(product);
         return this;
     }

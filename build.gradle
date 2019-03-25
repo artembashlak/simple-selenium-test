@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'ru.vyarus.quality' version '2.4.0'
 }
 
 group 'ua.com.rozetka'
@@ -21,6 +22,9 @@ ext {
     seleniumChromeDriverVersion = '2.53.1'
     allureTestNGVersion = '2.10.0'
     aspectjweaverVersion = '1.9.2'
+    joorVersion = '0.9.6'
+    assertJVersion = '3.11.1'
+    slf4jVersion = '1.7.25'
 }
 
 
@@ -30,8 +34,9 @@ dependencies {
             "org.seleniumhq.selenium:selenium-java:${seleniumVersion}",
             "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumChromeDriverVersion}",
             "io.qameta.allure:allure-testng:${allureTestNGVersion}",
-            "org.jooq:joor:0.9.6",
-            "org.assertj:assertj-core:3.11.1"
+            "org.jooq:joor:${joorVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.slf4j:slf4j-simple:${slf4jVersion}"
     )
 }
 

@@ -1,7 +1,8 @@
 1. Install chromedriver: https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver
 2. Execute shell command: ./gradlew build
 3. To run test use: ./gradlew clean test
-4. Use allure for reports: allure serve build/allure-results
+4. To check code style:./gradlew check
+5. Use allure for reports: allure serve build/allure-results
 
 Further steps:
 1. Add possibility to choose between chrome/firefox

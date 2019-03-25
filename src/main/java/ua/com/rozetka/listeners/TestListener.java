@@ -3,52 +3,59 @@ package ua.com.rozetka.listeners;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import static ua.com.rozetka.core.BaseTest.getDriver;
 
+/**
+ * Test listener. We are using it in testng.xml for methods, tests logging.
+ */
+
 public class TestListener implements ITestListener {
+    private final Logger log = LoggerFactory.getLogger(TestListener.class);
     @Override
-    public void onTestStart(ITestResult result) {
-        System.out.println("on test method " + getTestMethodName(result) + " start");
+    public void onTestStart(final ITestResult result) {
+        log.info(getTestMethodName(result) + " start");
     }
 
     @Override
-    public void onTestSuccess(ITestResult result) {
-        System.out.println("on test method " + getTestMethodName(result) + " success");
+    public void onTestSuccess(final ITestResult result) {
+        log.info(getTestMethodName(result) + " success");
         takeScreenShot();
     }
 
     @Override
-    public void onTestFailure(ITestResult result) {
-        System.out.println("on test method " + getTestMethodName(result) + " failure");
+    public void onTestFailure(final ITestResult result) {
+        log.info(getTestMethodName(result) + " failure");
         takeScreenShot();
     }
 
     @Override
-    public void onTestSkipped(ITestResult result) {
-        System.out.println("test method " + getTestMethodName(result) + " skipped");
+    public void onTestSkipped(final ITestResult result) {
+        log.info("test method " + getTestMethodName(result) + " skipped");
         takeScreenShot();
     }
 
     @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        System.out.println("test failed but within success % " + getTestMethodName(result));
+    public void onTestFailedButWithinSuccessPercentage(final ITestResult result) {
+        log.info("test failed but within success % " + getTestMethodName(result));
     }
 
     @Override
-    public void onStart(ITestContext context) {
-        System.out.println("on start of test " + context.getName());
+    public void onStart(final ITestContext context) {
+        log.info("on start of test " + context.getName());
     }
 
     @Override
-    public void onFinish(ITestContext context) {
-        System.out.println("on finish of test " + context.getName());
+    public void onFinish(final ITestContext context) {
+        log.info("on finish of test " + context.getName());
     }
 
-    private static String getTestMethodName(ITestResult result) {
+    private static String getTestMethodName(final ITestResult result) {
         return result.getMethod().getConstructorOrMethod().getName();
     }
 
