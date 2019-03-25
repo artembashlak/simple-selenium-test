@@ -2,6 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name = "Rozetka suite">
+    <listeners>
+        <listener class-name="ua.com.rozetka.listeners.TestListener"/>
+    </listeners>
 
     <test name = "Purchase product">
         <classes>

@@ -32,13 +32,5 @@ public class PurchaseProductTest extends BaseTest {
         assertThat(url).contains("rozetka");
         assertThat(title).isNotNull();
         assertThat(productSumInCart).isEqualTo("13 900");
-        takeScreenShot();
     }
-
-
-    @Attachment(value = "Screenshot {name}", type = "image/png")
-    private byte[] takeScreenShot() {
-        return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-    }
-
 }
