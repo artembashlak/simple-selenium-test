@@ -15,7 +15,7 @@ import static ua.com.rozetka.pages.BasePage.open;
 public class PurchaseProductTest extends BaseTest {
 
     @Test
-    public void shouldAddItemToCart() throws IOException {
+    public void shouldAddItemToCart() {
         String productSumInCart = open(HomePage.class)
                 .openURL()
                 .clickSearchInput()
@@ -37,7 +37,7 @@ public class PurchaseProductTest extends BaseTest {
 
 
     @Attachment(value = "Screenshot {name}", type = "image/png")
-    private byte[] takeScreenShot() throws IOException {
+    private byte[] takeScreenShot() {
         return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
