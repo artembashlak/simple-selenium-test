@@ -1,0 +1,6 @@
+1) Open https://rozetka.com.ua
+2) Search "iphone"
+3) Choose "iphone se" from dropdown list and go to category page
+4) Choose any phone with "Rose" color and go to product page
+5) Change color to "Space Gray"
+6) Add product to the basket

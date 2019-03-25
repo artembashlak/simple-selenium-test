@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.com.rozetka'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    agent
+}
+
+ext {
+    testNGVersion = '6.14.3'
+    seleniumVersion = '3.14.0'
+    seleniumChromeDriverVersion = '2.53.1'
+    allureTestNGVersion = '2.10.0'
+    aspectjweaverVersion = '1.9.2'
+}
+
+
+dependencies {
+    agent "org.aspectj:aspectjweaver:${aspectjweaverVersion}"
+    compile("org.testng:testng:${testNGVersion}",
+            "org.seleniumhq.selenium:selenium-java:${seleniumVersion}",
+            "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumChromeDriverVersion}",
+            "io.qameta.allure:allure-testng:${allureTestNGVersion}",
+            "org.jooq:joor:0.9.6",
+            "org.assertj:assertj-core:3.11.1"
+    )
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion '4.3.1'
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/suites/suite.xml'
+    }
+    systemProperty 'allure.results.directory', 'build/allure-results'
+}
