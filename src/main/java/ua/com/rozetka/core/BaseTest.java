@@ -1,7 +1,9 @@
 package ua.com.rozetka.core;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -29,6 +31,10 @@ public class BaseTest {
 
     public static WebDriver getDriver() {
         return DRIVER.get();
+    }
+
+    public static WebDriverWait getWebDriverWait(){
+        return new WebDriverWait(getDriver(),10);
     }
 
 }

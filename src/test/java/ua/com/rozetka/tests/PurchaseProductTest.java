@@ -1,10 +1,10 @@
 package ua.com.rozetka.tests;
 
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 import ua.com.rozetka.core.BaseTest;
 import ua.com.rozetka.pages.HomePage;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static ua.com.rozetka.pages.BasePage.open;
 
 public class PurchaseProductTest extends BaseTest {
@@ -24,8 +24,12 @@ public class PurchaseProductTest extends BaseTest {
         String title = getDriver().getTitle();
         String url = getDriver().getCurrentUrl();
 
-        assertThat(url).contains("rozetka");
-        assertThat(title).isNotNull();
-        assertThat(productSumInCart).isEqualTo("13 900");
+
+        SoftAssertions soft = new SoftAssertions();
+        soft.assertThat(productSumInCart).isEqualTo("13 900");
+        soft.assertThat(url).contains("rozetka");
+        soft.assertThat(title).isNotNull();
+        soft.assertAll();
+
     }
 }

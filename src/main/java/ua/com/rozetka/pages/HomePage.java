@@ -1,11 +1,16 @@
 package ua.com.rozetka.pages;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static ua.com.rozetka.core.BaseTest.getDriver;
+import static ua.com.rozetka.core.BaseTest.getWebDriverWait;
 
 /**
  * Class with homepage elements, basic methods to work with homepage elements.
@@ -69,6 +74,7 @@ public class HomePage extends BasePage {
 
     @Step
     public String getSumInPopout() {
-        return cartPopoutSum.getText();
+         return getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
+                ExpectedConditions.visibilityOf(cartPopoutSum)).getText();
     }
 }
