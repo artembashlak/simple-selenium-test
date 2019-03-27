@@ -86,15 +86,15 @@ public class HomePage extends BasePage {
 
     @Step
     public HomePage savePriceForProductInCart() {
-         this.productPriceInCart = getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
-                ExpectedConditions.visibilityOf(productPriceCartField)).getText();
+        this.productPriceInCart = getWebDriverWait().ignoring(StaleElementReferenceException.class)
+                .until(ExpectedConditions.visibilityOf(productPriceCartField)).getText();
         return this;
     }
 
     @Step
-    public HomePage saveSumForProductInDetailsView(){
-         this.productPriceInDetailView = getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
+    public HomePage saveSumForProductInDetailsView() {
+        this.productPriceInDetailView = getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
                 ExpectedConditions.visibilityOf(productPriceDetailsField)).getText();
-         return this;
+        return this;
     }
 }

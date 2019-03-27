@@ -22,7 +22,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        ChromeOptions chromeOptions = new ChromeOptions();
+        final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(false);
         DRIVER.set(new ChromeDriver(chromeOptions));
         DRIVER.get().manage().timeouts().implicitlyWait(20, SECONDS);
