@@ -15,6 +15,10 @@ import static ua.com.rozetka.core.BaseTest.getWebDriverWait;
  */
 
 public class HomePage extends BasePage {
+
+    private String productPriceInDetailView;
+    private String productPriceInCart;
+
     @FindBy(how = How.NAME, using = "search")
     private WebElement searchProductInput;
     @FindBy(how = How.XPATH, using = "//b[contains(text(),'se')]")
@@ -26,7 +30,17 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//li[@class='pp-variants-l-i pp-variants-l-i-last']//a[@name='variant']")
     private WebElement greyColorInPicker;
     @FindBy(how = How.XPATH, using = "//span[@name='sum']")
-    private WebElement cartPopoutSum;
+    private WebElement productPriceCartField;
+    @FindBy(how = How.XPATH, using = "//span[contains(text(),'13 900')]")
+    private WebElement productPriceDetailsField;
+
+    public String getProductPriceInDetailView() {
+        return this.productPriceInDetailView;
+    }
+
+    public String getProductPriceInCart() {
+        return this.productPriceInCart;
+    }
 
     @Step
     public HomePage openURL() {
@@ -71,8 +85,16 @@ public class HomePage extends BasePage {
     }
 
     @Step
-    public String getSumInPopout() {
-        return getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
-                ExpectedConditions.visibilityOf(cartPopoutSum)).getText();
+    public HomePage savePriceForProductInCart() {
+         this.productPriceInCart = getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
+                ExpectedConditions.visibilityOf(productPriceCartField)).getText();
+        return this;
+    }
+
+    @Step
+    public HomePage saveSumForProductInDetailsView(){
+         this.productPriceInDetailView = getWebDriverWait().ignoring(StaleElementReferenceException.class).until(
+                ExpectedConditions.visibilityOf(productPriceDetailsField)).getText();
+         return this;
     }
 }
